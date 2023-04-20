@@ -6,7 +6,7 @@
     <img src="App\static\images\mandems_logo_white.png" style="width: 30%">
 </p>
 
-<p align="center"><h2 align="center">Using <a href="https://github.com/fow1078/Sickbenocouture/blob/main/App/venv/main.py">Python</a> framework Flask and SQLAlchemy for Backend:</h2></p>
+<p align="center"><h2 align="center">Using <a href="https://github.com/Nikkkt/Sickbenocouture/blob/main/App/venv/main.py">Python</a> framework Flask and SQLAlchemy for Backend:</h2></p>
 
 ```python
 from flask import Flask, request, redirect, render_template
@@ -66,7 +66,7 @@ if __name__ == "__main__":
     app.run(host='0.0.0.0', port=port, debug=False)
 ```
 
-<p align="center"><h2 align="center">and <a href="https://github.com/fow1078/Sickbenocouture/tree/main/App/templates">HTML</a>, <a href="https://github.com/fow1078/Sickbenocouture/tree/main/App/static/css">CSS</a>, <a href="https://github.com/fow1078/Sickbenocouture/tree/main/App/static/js">JavaScript</a> for Frontend:</h2></p>
+<p align="center"><h2 align="center">and <a href="https://github.com/Nikkkt/Sickbenocouture/tree/main/App/templates">HTML</a>, <a href="https://github.com/Nikkkt/Sickbenocouture/tree/main/App/static/css">CSS</a>, <a href="https://github.com/Nikkkt/Sickbenocouture/tree/main/App/static/js">JavaScript</a> for Frontend:</h2></p>
 
 ```javascript
 const LANGTITLE = document.querySelector('.langtitle_par');
