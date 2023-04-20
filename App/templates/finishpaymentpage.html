@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- FavIcon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png">
+  <link rel="manifest" href="../static/favicons/site.webmanifest">
+  <link rel="mask-icon" href="../static/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#000000">
+
+  <!-- Style css -->
+  <link rel="stylesheet" href="../static/css/style.css">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Crimson+Text:wght@400;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 -->
+  <script src="https://kit.fontawesome.com/6a2bd9707a.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <title>Thank You!</title>
+</head>
+<body style="background-color: rgb(240, 240, 240); padding: 60px 20px; height: 100vh;">  
+  <section style="background-color: rgb(240, 240, 240); padding: 20px; border-radius: 10px">
+    <div class="row">
+      <div class="col-12 text-center">
+        <img src="../static/images/mandems_logo_black-removebg-preview.png" style="max-width: 300px; width: 100%">
+      </div>
+      <div class="col-12 text-center">
+        <img src="../static/images/check-mark-symbol-transparent-background-24.png" style="max-width: 100px; width: 100%">
+      </div>
+      <div class="col-12">
+        <h1 class="text-center" style="font-family: 'Quicksand', sans-serif; margin-bottom: 0 !important">Thank you for your order!</h1>
+      </div>
+      <div class="col-12 text-center" style="margin-bottom: 10px">
+        <p style="font-family: 'Quicksand', sans-serif; font-size: 18px;">Your order <span style="font-family: 'Quicksand', sans-serif; font-size: 22px;">{{ order_id }}</span> has been recieved. You will be contacted soon.</p>
+      </div>
+      <div class="col-12 text-center" style="margin-bottom: 10px">
+        <p style="font-family: 'Quicksand', sans-serif; font-size: 14px;">You will be automatically redirected to homepage in 15 seconds</p>
+      </div>
+      <div class="text-center" style="margin-bottom: 15px" onclick="sessionStorage.clear()">
+        <a href="/"><button class="go_home_button">Go Home</button></a>
+      </div>
+      <div class="text-center">
+        <a href="https://www.instagram.com/sickbenoo/" target="_blank" style="color: #000 !important"><i class="fa-brands fa-instagram" style="font-size: 32px"></i></a>
+      </div>
+    </div>
+  </section>
+  <script>
+    setTimeout(() => {
+      sessionStorage.clear()
+      window.location.href = "/";
+    }, 15000)
+  </script>
+</body>
+</html>

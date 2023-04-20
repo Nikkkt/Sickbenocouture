@@ -1,0 +1,8 @@
+.contact_section {padding: 60px 0; width: 100%; display: flex; justify-content: center;}
+.contact_text__box {max-width: 600px; text-align: justify; width: 100%;}
+.contact_data__box {max-width: 600px; display: flex; justify-content: space-around;}
+
+@media (max-width: 575.98px) {
+    .contact_data__box {flex-direction: column; align-items: center}
+    .contact_email {margin-bottom: 10px;}
+}

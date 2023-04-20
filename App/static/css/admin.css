@@ -1,0 +1,21 @@
+.add_new__item_box {padding: 120px 0;}
+.input_box {display: flex; flex-direction: column; align-items: Start; justify-content: center;}
+.inputs_form__style {background: transparent; border: solid 2px #000; border-radius: 5px; width: 100%; padding: 5px 10px}
+.form_submit__button {background-color: #000; padding: 10px 20px; display: flex; align-items: center; justify-content: center; color:#fff; border: 2px solid #000; border-radius: 7px; width: 100%; margin-top: 10px; transition: 0.3s; text-transform: uppercase;}
+.form_submit__button:hover {background-color: #fff; border: solid 2px #000; color: #000;}
+.auth {padding: 10px}
+.auth_invalid_message {color: rgb(255, 0, 0); margin-bottom: 0; font-size: 22px}
+.form_submit__button_changes {padding: 10px 20px; display: flex; align-items: center; justify-content: center; color:#fff; border: 2px solid #000; border-radius: 7px; width: 100%; margin-top: 10px; transition: 0.3s; text-transform: uppercase;}
+
+.edit_button__update {background-color: rgb(30, 49, 86); width: 49%; border: solid 2px rgb(30, 49, 86)}
+.edit_button__delete {background-color: rgb(86, 30, 30); width: 49%; border: solid 2px rgb(86, 30, 30)}
+.edit_button__update:hover {background-color: #fff !important; border: solid 2px rgb(30, 49, 86) !important; color: rgb(30, 49, 86); font-weight: 500;}
+.edit_button__delete:hover {background-color: #fff !important; border: solid 2px rgb(86, 30, 30) !important; color: rgb(86, 30, 30); font-weight: 500; }
+
+
+.statistics_reset__button {background-color: #000; padding: 10px 20px; color:#fff; border: 2px solid #000; border-radius: 7px; width: 20%; transition: 0.3s; text-transform: uppercase; float: right; margin: 10px}
+.statistics_reset__button:hover {background-color: #fff; border: solid 2px #000; color: #000;}
+
+@media (max-width: 991.98px) {
+  .statistics_reset__button {width: 50%}
+}

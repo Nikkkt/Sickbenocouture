@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- FavIcon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png">
+  <link rel="manifest" href="../static/favicons/site.webmanifest">
+  <link rel="mask-icon" href="../static/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#000000">
+
+  <!-- Style css -->
+  <link rel="stylesheet" href="../static/css/style.css">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Crimson+Text:wght@400;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap 5 -->
+  <script src="https://kit.fontawesome.com/6a2bd9707a.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="../static/cart-localstorage-master/dist/cart-localstorage.min.js" type="text/javascript"></script>
+  <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js" integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
+  <!-- Title -->
+  <title>{% if language == 'EN' or language == 'en' %}Oferta - Sickbenocouture{% else %}Договір Публічної Оферти - Sickbenocouture{% endif %}</title>
+</head>
+
+<body class="">
+  <!-- Header Start -->
+  <header class="nav_bar__container" style="z-index: 11;">
+    <nav class="container nav-container">
+      <div class="row align-items-center d-md-flex d-none">
+        <div class="col-2"><a href="https://www.instagram.com/sickbenoo/" target="_blank" class=""><i
+              class="fa-brands fa-instagram" style="font-size: 24px; color: #fff"></i></a></div>
+        <div class="col-6 offset-1">
+          <ul class="d-flex justify-content-between align-items-center" style="margin-bottom: 0 !important">
+            <li class="nav_item" style="font-size: 24px; color: #fff"><a href="/{{ language }}" id="home_nav__button">
+              {% if language == 'EN' or language == 'en' %}
+                Home
+              {% else %}
+                Головна
+              {% endif %}
+              </a></li>
+            <li class="nav_item" style="font-size: 24px; color: #fff"><a href="/{{ language }}/about">
+              {% if language == 'EN' or language == 'en' %}
+                About
+              {% else %}
+                Про нас
+              {% endif %}
+              </a></li>
+            <li class="nav_item" style="font-size: 24px; color: #fff"><a href="/{{ language }}/contact">
+              {% if language == 'EN' or language == 'en' %}
+                Contact
+              {% else %}
+                Контакти
+              {% endif %}
+              </a></li>
+          </ul>
+        </div>
+        <div class="col-2 offset-1 d-flex justify-content-end cart_click align-items-center" id="cart_click" data-modal>
+          <div class="cart_count__main cart_numofitems__box">0</div>
+          <i class="fa-solid fa-cart-shopping" style="font-size: 24px; color: #fff"></i>
+        </div>
+      </div>
+      <div class="row align-items-center d-flex d-md-none">
+        <input type="checkbox" id="menuToggler" class="input-toggler" value="1" autofocus="true" />
+        <div class="w-100 d-flex align-items-center justify-content-end">
+          <label for="menuToggler" id="menuTogglerLabel" class="menu-toggler" role="button" aria-pressed="false"
+            aria-expanded="false" aria-label="Navigation button">
+            <span class="menu-toggler__line"></span>
+            <span class="menu-toggler__line"></span>
+            <span class="menu-toggler__line"></span>
+          </label>
+          <div class="d-flex justify-content-end cart_click" id="cart_click" data-modal>
+            <div class="cart_count__main2 cart_numofitems__box">0</div>
+            <i class="fa-solid fa-cart-shopping" style="font-size: 24px; color: #fff"></i>
+          </div>
+        </div>
+
+        <nav id="sidebar" class="sidebar d-flex flex-column align-items-center" role="navigation"
+          aria-labelledby="menuTogglerLabel" aria-hidden="true">
+          <div class="logo_container">
+            <img src="../static/images/mandems_logo_white.png" alt="Mandems Global White" class="logo_white" />
+          </div>
+          <ul id="menubar" class="menu d-flex flex-column align-items-center" role="menubar"
+            aria-orientation="vertical">
+            <li class="menu__item"><a class="menu__link" href="/{{ language }}" role="menuitem" tabindex="-1">
+              {% if language == 'EN' or language == 'en' %}
+                Home
+              {% else %}
+                Головна
+              {% endif %}</a></li>
+            <li class="menu__item"><a class="menu__link" href="/{{ language }}/about" role="menuitem" tabindex="-1">
+              {% if language == 'EN' or language == 'en' %}
+                About
+              {% else %}
+                Про нас
+              {% endif %}
+            </a></li>
+            <li class="menu__item"><a class="menu__link" href="/{{ language }}/contact" role="menuitem" tabindex="-1">
+              {% if language == 'EN' or language == 'en' %}
+                Contact
+              {% else %}
+                Контакти
+              {% endif %}
+            </a></li>
+            <li class="menu__item"><a class="menu__link" href="https://www.instagram.com/sickbenoo/"
+                target="_blank" role="menuitem" tabindex="-1"><i class="fa-brands fa-instagram"
+                  style="font-size: 34px; color: #fff; margin-bottom: 0;"></i></a></li>
+          </ul>
+        </nav>
+
+      </div>
+    </nav>
+  </header>
+  <!-- Header End -->
+
+  <main>
+    <section class="oferta_main__section">
+      <h2 style="margin-bottom: 30px; font-family: 'Courier New', Courier, monospace;">
+        {% if language == 'EN' or language == 'en' %}
+          Public Offer Agreement
+        {% else %}
+          Договір Публічної Оферти
+        {% endif %}
+      </h2>
+      <div class="" style="margin-bottom: 30px">
+        <h4 class="oferta_title"><b>
+        {% if language == 'EN' or language == 'en' %}
+          Ordering procedure:
+        {% else %}
+          Порядок оформлення замовлення:
+        {% endif %}
+        </b></h4>
+        <p class="oferta_paragraph">
+          {% if language == 'EN' or language == 'en' %}
+          1.1 The buyer has the right to place an order for any product presented on the Site (SickBenoCouture) and available.
+          <br>
+          1.2 In the absence of goods in stock, the manager is obliged to inform the buyer (by phone or e-mail).
+          {% else %}
+          1.1 Покупець має право оформити замовлення на будь-який товар, представлений на Сайті (SickBenoCouture) і наявний.
+          <br>
+          1.2 При відсутності товару на складі, менеджер зобов'язаний поставити покупця до відома (по телефону або через електронну пошту).
+          {% endif %}
+        </p>
+      </div>
+      <div class="" style="margin-bottom: 30px">
+        <h4 class="oferta_title"><b>
+        {% if language == 'EN' or language == 'en' %}
+          Order payment procedure:
+        {% else %}
+          Порядок оплати замовлення:
+        {% endif %}
+        </b></h4>
+        <p class="oferta_paragraph">
+          {% if language == 'EN' or language == 'en' %}
+          2.1 Payment is made upon transfer of money to a bank card.
+          <br>
+          2.2 If funds are not received on the bank card. We reserve the right to cancel the order.
+          {% else %}
+          2.1 Оплата здійснюється за фактом переказу грошей на банківську карту.
+          <br>
+          2.2 При не надходження коштів на банківську карту. Ми залишаєм за собою право анулювати замовлення.
+          {% endif %}
+        </p>
+      </div>
+      <div class="" style="margin-bottom: 30px">
+        <h4 class="oferta_title"><b>
+        {% if language == 'EN' or language == 'en' %}
+          Order payment procedure:
+        {% else %}
+          Умови доставки замовлення:
+        {% endif %}
+        </b></h4>
+        <p class="oferta_paragraph">
+          {% if language == 'EN' or language == 'en' %}
+          3.1 Delivery of goods purchased in our store is carried out to post offices, where the shipment is carried out.
+          {% else %}
+          3.1 Доставка товарів, придбаних в нашому магазині, здійснюється до поштових віділень, де і здійснюється відправка.
+          {% endif %}
+        </p>
+      </div>
+      <div class="" style="margin-bottom: 30px">
+        <h4 class="oferta_title"><b>
+        {% if language == 'EN' or language == 'en' %}
+          The seller has the right:
+        {% else %}
+          Продавець має право:
+        {% endif %}
+        </b></h4>
+        <p class="oferta_paragraph">
+          {% if language == 'EN' or language == 'en' %}
+          4.1 Unilaterally terminate the provision of services under this agreement in case of violation by the Buyer of the terms of this agreement.
+          {% else %}
+          4.1 В односторонньому порядку припинити надання послуг за цим договором у разі порушення Покупцем умов цього договору.
+          {% endif %}
+        </p>
+      </div>
+      <div class="" style="margin-bottom: 30px">
+        <h4 class="oferta_title"><b>
+        {% if language == 'EN' or language == 'en' %}
+          The buyer is obliged:
+        {% else %}
+          Покупець зобов'язаний:
+        {% endif %}
+        </b></h4>
+        <p class="oferta_paragraph">
+          {% if language == 'EN' or language == 'en' %}
+          5.1 Timely pay and receive the order on the terms of this agreement.
+          {% else %}
+          5.1 Своєчасно оплатити та отримати замовлення на умовах цього договору.
+          {% endif %}
+        </p>
+      </div>
+      <div class="" style="margin-bottom: 30px">
+        <h4 class="oferta_title"><b>
+        {% if language == 'EN' or language == 'en' %}
+          The buyer has the right:
+        {% else %}
+          Покупець має право:
+        {% endif %}
+        </b></h4>
+        <p class="oferta_paragraph">
+          {% if language == 'EN' or language == 'en' %}
+          6.1 You can place an order on the website and via Instagram.
+          <br> 
+          6.2 Require the Seller to comply with the terms of this Agreement.
+          {% else %}
+          6.1 Оформити замовлення на сайті так і через дірект в Instagram.
+          <br> 
+          6.2 Вимагати від Продавця виконання умов цього Договору.
+          {% endif %}
+        </p>
+      </div>
+      <div class="" style="margin-bottom: 30px">
+        <h4 class="oferta_title"><b>
+        {% if language == 'EN' or language == 'en' %}
+          Responsibility of the parties:
+        {% else %}
+          Відповідальність сторін:
+        {% endif %}
+        </b></h4>
+        <p class="oferta_paragraph">
+          {% if language == 'EN' or language == 'en' %}
+          7.1 The parties are responsible for non-fulfillment or improper fulfillment of the terms of this agreement.
+          {% else %}
+          7.1 Сторони несуть відповідальність за невиконання або неналежне виконання умов цього договору.
+          {% endif %}
+        </p>
+      </div>
+      <div class="" style="margin-bottom: 30px">
+        <h4 class="oferta_title"><b>
+        {% if language == 'EN' or language == 'en' %}
+          The seller is not responsible for:
+        {% else %}
+          Продавець не несе відповідальності за:
+        {% endif %}
+        </b></h4>
+        <p class="oferta_paragraph">
+          {% if language == 'EN' or language == 'en' %}
+          8.1 For a slight discrepancy in the color scheme of the product, which may differ from the original product solely due to the different color rendering of personal computer monitors of individual models.
+          <br>
+          8.2 For the content and truthfulness of the information provided by the Buyer when placing an order.
+          <br>
+          8.3 For delays and interruptions in the provision of Services (order processing and delivery of goods) that occur for reasons beyond its control
+          {% else %}
+          8.1 За незначну невідповідність колірної гами товару, що може відрізнятися від оригіналу товару виключно через різній колірній передачі моніторів персональних комп'ютерів окремих моделей.
+          <br>
+          8.2 За зміст і правдивість інформації, наданої Покупцем при оформленні замовлення.
+          <br>
+          8.3 За затримку і перебої в наданні Послуг (обробки замовлення та доставки товару), які відбуваються з причин, що знаходяться поза сферою його контролю.
+          {% endif %}
+        </p>
+      </div>
+    </section>
+  </main>
+  
+  <footer class="footer_images_section">
+    <div class="row justify-content-between">
+      <div class="footer_first__column col-8 offset-2 col-sm-10 offset-sm-1 col-md-4 offset-md-0 col-lg-3 col-xl-3">
+        <img src="../static/images/mandems_logo_white.png" style="max-width: 100%" />
+      </div>
+      <div class="footer_second__column col-sm-6 col-lg-3 offset-xl-1 col-xl-3 col-xxl-2">
+        <h3 class="text-white footer_titles">
+          {% if language == 'EN' or language == 'en' %}
+            Menu
+          {% else %}
+            Меню
+          {% endif %}
+        </h3>
+        <ul class="d-flex footer_second__column_ul" style="margin-bottom: 0 !important; padding-left: 0 !important">
+            <li class="nav_item footer_second__column_li"><a href="/{{ language }}" id="home_nav__button" class="footer_nav__items">
+              {% if language == 'EN' or language == 'en' %}
+                Home
+              {% else %}
+                Головна
+              {% endif %}
+              </a></li>
+            <li class="nav_item footer_second__column_li"><a href="/{{ language }}/about" class="footer_nav__items">
+              {% if language == 'EN' or language == 'en' %}
+                About
+              {% else %}
+                Про нас
+              {% endif %}
+              </a></li>
+            <li class="nav_item footer_second__column_li"><a href="/{{ language }}/contact" class="footer_nav__items">
+              {% if language == 'EN' or language == 'en' %}
+                Contact
+              {% else %}
+                Контакти
+              {% endif %}
+              </a></li>
+            <li class="nav_item footer_second__column_li"><a href="/{{ language }}/payment" class="footer_nav__items">
+              {% if language == 'EN' or language == 'en' %}
+                Payment and Delivery
+              {% else %}
+                Оплата та доставка
+              {% endif %}
+              </a></li>
+            <li class="nav_item footer_second__column_li"><a href="/{{ language }}/exchange" class="footer_nav__items">
+              {% if language == 'EN' or language == 'en' %}
+                Exchange and Refund
+              {% else %}
+                Обмін та повернення 
+              {% endif %}
+              </a></li>
+          </ul>
+      </div>
+      <div class="footer_third__column col-sm-6 col-md-6 col-lg-2 col-xl-2">
+        <h3 class="text-white footer_titles">
+          {% if language == 'EN' or language == 'en' %}
+            Social Networks
+          {% else %}
+            Соціальні мережі
+          {% endif %}
+        </h3>
+        <ul class="d-flex flex-column align-items-start" style="margin-bottom: 0 !important; padding-left: 0 !important">
+            <li class="nav_item footer_second__column_li"><a href="https://www.instagram.com/sickbenoo/" id="home_nav__button" class="footer_nav__items">
+                Instagram
+              </a></li>
+          </ul>
+      </div>
+      <div class="footer_fourth__column col-md-6 col-lg-3 col-xl-3">
+        <h3 class="text-white footer_titles">
+          {% if language == 'EN' or language == 'en' %}
+            Contacts
+          {% else %}
+            Контакти
+          {% endif %}
+        </h3>
+        <div class="d-flex flex-column">
+          <div class="contact_email">
+            <i class="fa-solid fa-envelope-open-text footer_email__icon" style="font-size: 20px; margin-right: 6px; color: #fff !important;"></i>
+            <a class="footer_fourth__column_email" href="mailto:sickbenocouture@gmail.com">sickbenocouture@gmail.com</a>
+          </div>
+          <div class="contact_phone">
+            <i class="fa-solid fa-phone footer_tel__icon" style="font-size: 22px; margin-right: 6px; color: #fff !important;"></i>
+            <a class="footer_fourth__column_tel" href="tel:+380955354564">+38 095 535 45 64</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div class="under_footer__fondy_info">
+    <div class="row under_footer__fondy_info_box" style="margin-bottom: 15px">
+      <div class="public_offer_contract_string col-12 col-lg-5">
+        <a href="/{{ language }}/oferta">
+          <h4 class="public_offer_contract_title">
+            {% if language == 'EN' or language == 'en' %}
+              Public Offer Agreement
+            {% else %}
+              Договір Публічної Оферти
+            {% endif %}
+          </h4>
+        </a>
+      </div>
+
+      <div class="privacy_policy_contract_string col-12 col-lg-5">
+        <a href="/{{ language }}/privacy-policy">
+          <h4 class="public_offer_contract_title">
+            {% if language == 'EN' or language == 'en' %}
+              Privacy Policy
+            {% else %}
+              Політика Конфіденційності
+            {% endif %}
+          </h4>
+        </a>
+      </div>
+
+    </div>
+    <div class="rights_reserved_box col-12">
+        <h4 class="rights_reserved_string">
+          © 2023 Sick Beno. All Rights Reserved.
+        </h4>
+    </div>
+  </div>
+
+  <div class="modal">
+    <div class="modal__dialog">
+      <div class="modal__content">
+        <div class="modal__close" data-close>&times;</div>
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header">
+            <h2>
+              {% if language == 'EN' or language == 'en' %}
+                Cart
+              {% else %} 
+               Кошик
+              {% endif %}
+            </h2>
+          </div>
+          <div class="card-body">
+            <div class="column-labels">
+              <label class="product-details">Product</label>
+              <label class="product-price">Price</label>
+              <label class="product-quantity">Quantity</label>
+              <label class="product-removal">Remove</label>
+              <label class="product-line-price">Total</label>
+            </div>
+            <div class="products-column">
+
+            </div>
+
+            <div class="totals">
+              <div class="totals-item totals-item-total">
+                <label>Grand Total UAH</label>
+                <div class="totals-value" id="cart-total-uah">0</div>
+              </div>
+              <div class="totals-item totals-item-total">
+                <label>Grand Total USD</label>
+                <div class="totals-value" id="cart-total-usd">0</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal__cart_box">
+          <h2 class="text-center">
+            {% if language == 'EN' or language == 'en' %}
+              Delivery
+            {% else %}
+              Доставка
+            {% endif %}
+            </h2>
+          <form name="cart_form" method="post" id="modal_cart">
+            <div class="input_box" style="margin-bottom: 15px;">
+              <label for="user_name" style="font-size: 18px">
+                {% if language == 'EN' or language == 'en' %}
+                  Name
+                {% else %}
+                  Імʼя
+                {% endif %}
+                <sup>*</sup></label>
+              <input type="text" name="user_name" id="user_name" required class="inputs_form__style user__name_field_input validationDefault01"
+                style="height: 45px; width: 100%;" />
+            </div>
+
+            <div class="input_box" style="margin-bottom: 15px;">
+              <label for="lastname" style="font-size: 18px">
+                {% if language == 'EN' or language == 'en' %}
+                  Last Name
+                {% else %}
+                  Призвище 
+                {% endif %}
+                  <sup>*</sup></label>
+              <input type="text" name="lastname" required class="inputs_form__style user__last_field_input validationDefault02"
+                id="lastname" style="height: 45px; width: 100%;" />
+            </div>
+
+            <div class="input_box" style="margin-bottom: 15px;">
+              <label for="messenger" style="font-size: 18px; width: 100%;">
+                {% if language == 'EN' or language == 'en' %}
+                  Convenient messenger for communication<sup>*</sup>
+                {% else %}
+                  Зручний мессенджер для звʼязку<sup>*</sup>
+                {% endif %}
+              </label>
+              <select name="messenger" class="inputs_form__style user__messenger_field_input validationDefault05"
+                id="messenger" style="height: 45px; width: 100%;" required>
+                  <option value="telegram">Telegram</option>
+                  <option value="viber">Viber</option>
+                  <option value="whatsapp">WhatsApp</option>
+              </select>
+            </div>
+
+            <div class="input_box" style="margin-bottom: 15px;">
+              <label for="telegram_nickname" style="font-size: 18px">
+                {% if language == 'EN' or language == 'en' %}
+                  Telegram nickname or WhatsApp(Viber) phone number
+                {% else %}
+                  Никнейм Telegram або номер телефону WhatsApp(Viber)
+                {% endif %}
+                  <sup>*</sup></label>
+                <input type="text" name="telegram_nickname" required class="inputs_form__style user__tel_field_input validationDefault03"
+                  id="telegram_nickname" style="height: 45px; width: 100%;"  />
+            </div>
+
+            <div class="input_box" style="margin-bottom: 15px;">
+              <label for="email" style="font-size: 18px">E-mail<sup>*</sup></label>
+              <input type="email" name="email" required class="inputs_form__style user__email_field_input validationDefault04"
+                id="email" style="height: 45px; width: 100%;" />
+            </div>
+
+            <div class="input_box" style="margin-bottom: 15px;">
+              <label for="country" style="font-size: 18px; width: 100%;">
+                {% if language == 'EN' or language == 'en' %}
+                  Country<sup>*</sup></label>
+                {% else %}
+                  Країна
+                {% endif %}
+              <select name="country" class="inputs_form__style user__country_field_input validationDefault05"
+                id="country" style="height: 45px; width: 100%;" required>
+                <option value="Afghanistan">Afghanistan</option>
+                <option value="Albania">Albania</option>
+                <option value="Algeria">Algeria</option>
+                <option value="American Samoa">American Samoa</option>
+                <option value="Andorra">Andorra</option>
+                <option value="Angola">Angola</option>
+                <option value="Anguilla">Anguilla</option>
+                <option value="Antartica">Antarctica</option>
+                <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                <option value="Argentina">Argentina</option>
+                <option value="Armenia">Armenia</option>
+                <option value="Aruba">Aruba</option>
+                <option value="Australia">Australia</option>
+                <option value="Austria">Austria</option>
+                <option value="Azerbaijan">Azerbaijan</option>
+                <option value="Bahamas">Bahamas</option>
+                <option value="Bahrain">Bahrain</option>
+                <option value="Bangladesh">Bangladesh</option>
+                <option value="Barbados">Barbados</option>
+                <option value="Belarus">Belarus</option>
+                <option value="Belgium">Belgium</option>
+                <option value="Belize">Belize</option>
+                <option value="Benin">Benin</option>
+                <option value="Bermuda">Bermuda</option>
+                <option value="Bhutan">Bhutan</option>
+                <option value="Bolivia">Bolivia</option>
+                <option value="Bosnia and Herzegowina">Bosnia and Herzegowina</option>
+                <option value="Botswana">Botswana</option>
+                <option value="Bouvet Island">Bouvet Island</option>
+                <option value="Brazil">Brazil</option>
+                <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                <option value="Brunei Darussalam">Brunei Darussalam</option>
+                <option value="Bulgaria">Bulgaria</option>
+                <option value="Burkina Faso">Burkina Faso</option>
+                <option value="Burundi">Burundi</option>
+                <option value="Cambodia">Cambodia</option>
+                <option value="Cameroon">Cameroon</option>
+                <option value="Canada">Canada</option>
+                <option value="Cape Verde">Cape Verde</option>
+                <option value="Cayman Islands">Cayman Islands</option>
+                <option value="Central African Republic">Central African Republic</option>
+                <option value="Chad">Chad</option>
+                <option value="Chile">Chile</option>
+                <option value="China">China</option>
+                <option value="Christmas Island">Christmas Island</option>
+                <option value="Cocos Islands">Cocos (Keeling) Islands</option>
+                <option value="Colombia">Colombia</option>
+                <option value="Comoros">Comoros</option>
+                <option value="Congo">Congo</option>
+                <option value="Congo">Congo, the Democratic Republic of the</option>
+                <option value="Cook Islands">Cook Islands</option>
+                <option value="Costa Rica">Costa Rica</option>
+                <option value="Cota D'Ivoire">Cote d'Ivoire</option>
+                <option value="Croatia">Croatia (Hrvatska)</option>
+                <option value="Cuba">Cuba</option>
+                <option value="Cyprus">Cyprus</option>
+                <option value="Czech Republic">Czech Republic</option>
+                <option value="Denmark">Denmark</option>
+                <option value="Djibouti">Djibouti</option>
+                <option value="Dominica">Dominica</option>
+                <option value="Dominican Republic">Dominican Republic</option>
+                <option value="East Timor">East Timor</option>
+                <option value="Ecuador">Ecuador</option>
+                <option value="Egypt">Egypt</option>
+                <option value="El Salvador">El Salvador</option>
+                <option value="Equatorial Guinea">Equatorial Guinea</option>
+                <option value="Eritrea">Eritrea</option>
+                <option value="Estonia">Estonia</option>
+                <option value="Ethiopia">Ethiopia</option>
+                <option value="Falkland Islands">Falkland Islands (Malvinas)</option>
+                <option value="Faroe Islands">Faroe Islands</option>
+                <option value="Fiji">Fiji</option>
+                <option value="Finland">Finland</option>
+                <option value="France">France</option>
+                <option value="France Metropolitan">France, Metropolitan</option>
+                <option value="French Guiana">French Guiana</option>
+                <option value="French Polynesia">French Polynesia</option>
+                <option value="French Southern Territories">French Southern Territories</option>
+                <option value="Gabon">Gabon</option>
+                <option value="Gambia">Gambia</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Germany">Germany</option>
+                <option value="Ghana">Ghana</option>
+                <option value="Gibraltar">Gibraltar</option>
+                <option value="Greece">Greece</option>
+                <option value="Greenland">Greenland</option>
+                <option value="Grenada">Grenada</option>
+                <option value="Guadeloupe">Guadeloupe</option>
+                <option value="Guam">Guam</option>
+                <option value="Guatemala">Guatemala</option>
+                <option value="Guinea">Guinea</option>
+                <option value="Guinea-Bissau">Guinea-Bissau</option>
+                <option value="Guyana">Guyana</option>
+                <option value="Haiti">Haiti</option>
+                <option value="Heard and McDonald Islands">Heard and Mc Donald Islands</option>
+                <option value="Holy See">Holy See (Vatican City State)</option>
+                <option value="Honduras">Honduras</option>
+                <option value="Hong Kong">Hong Kong</option>
+                <option value="Hungary">Hungary</option>
+                <option value="Iceland">Iceland</option>
+                <option value="India">India</option>
+                <option value="Indonesia">Indonesia</option>
+                <option value="Iran">Iran (Islamic Republic of)</option>
+                <option value="Iraq">Iraq</option>
+                <option value="Ireland">Ireland</option>
+                <option value="Israel">Israel</option>
+                <option value="Italy">Italy</option>
+                <option value="Jamaica">Jamaica</option>
+                <option value="Japan">Japan</option>
+                <option value="Jordan">Jordan</option>
+                <option value="Kazakhstan">Kazakhstan</option>
+                <option value="Kenya">Kenya</option>
+                <option value="Kiribati">Kiribati</option>
+                <option value="Democratic People's Republic of Korea">Korea, Democratic People's Republic of</option>
+                <option value="Korea">Korea, Republic of</option>
+                <option value="Kuwait">Kuwait</option>
+                <option value="Kyrgyzstan">Kyrgyzstan</option>
+                <option value="Lao">Lao People's Democratic Republic</option>
+                <option value="Latvia">Latvia</option>
+                <option value="Lebanon">Lebanon</option>
+                <option value="Lesotho">Lesotho</option>
+                <option value="Liberia">Liberia</option>
+                <option value="Libyan Arab Jamahiriya">Libyan Arab Jamahiriya</option>
+                <option value="Liechtenstein">Liechtenstein</option>
+                <option value="Lithuania">Lithuania</option>
+                <option value="Luxembourg">Luxembourg</option>
+                <option value="Macau">Macau</option>
+                <option value="Macedonia">Macedonia, The Former Yugoslav Republic of</option>
+                <option value="Madagascar">Madagascar</option>
+                <option value="Malawi">Malawi</option>
+                <option value="Malaysia">Malaysia</option>
+                <option value="Maldives">Maldives</option>
+                <option value="Mali">Mali</option>
+                <option value="Malta">Malta</option>
+                <option value="Marshall Islands">Marshall Islands</option>
+                <option value="Martinique">Martinique</option>
+                <option value="Mauritania">Mauritania</option>
+                <option value="Mauritius">Mauritius</option>
+                <option value="Mayotte">Mayotte</option>
+                <option value="Mexico">Mexico</option>
+                <option value="Micronesia">Micronesia, Federated States of</option>
+                <option value="Moldova">Moldova, Republic of</option>
+                <option value="Monaco">Monaco</option>
+                <option value="Mongolia">Mongolia</option>
+                <option value="Montserrat">Montserrat</option>
+                <option value="Morocco">Morocco</option>
+                <option value="Mozambique">Mozambique</option>
+                <option value="Myanmar">Myanmar</option>
+                <option value="Namibia">Namibia</option>
+                <option value="Nauru">Nauru</option>
+                <option value="Nepal">Nepal</option>
+                <option value="Netherlands">Netherlands</option>
+                <option value="Netherlands Antilles">Netherlands Antilles</option>
+                <option value="New Caledonia">New Caledonia</option>
+                <option value="New Zealand">New Zealand</option>
+                <option value="Nicaragua">Nicaragua</option>
+                <option value="Niger">Niger</option>
+                <option value="Nigeria">Nigeria</option>
+                <option value="Niue">Niue</option>
+                <option value="Norfolk Island">Norfolk Island</option>
+                <option value="Northern Mariana Islands">Northern Mariana Islands</option>
+                <option value="Norway">Norway</option>
+                <option value="Oman">Oman</option>
+                <option value="Pakistan">Pakistan</option>
+                <option value="Palau">Palau</option>
+                <option value="Panama">Panama</option>
+                <option value="Papua New Guinea">Papua New Guinea</option>
+                <option value="Paraguay">Paraguay</option>
+                <option value="Peru">Peru</option>
+                <option value="Philippines">Philippines</option>
+                <option value="Pitcairn">Pitcairn</option>
+                <option value="Poland">Poland</option>
+                <option value="Portugal">Portugal</option>
+                <option value="Puerto Rico">Puerto Rico</option>
+                <option value="Qatar">Qatar</option>
+                <option value="Reunion">Reunion</option>
+                <option value="Romania">Romania</option>
+                <option value="Rwanda">Rwanda</option>
+                <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                <option value="Saint LUCIA">Saint LUCIA</option>
+                <option value="Saint Vincent">Saint Vincent and the Grenadines</option>
+                <option value="Samoa">Samoa</option>
+                <option value="San Marino">San Marino</option>
+                <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+                <option value="Saudi Arabia">Saudi Arabia</option>
+                <option value="Senegal">Senegal</option>
+                <option value="Seychelles">Seychelles</option>
+                <option value="Sierra">Sierra Leone</option>
+                <option value="Singapore">Singapore</option>
+                <option value="Slovakia">Slovakia (Slovak Republic)</option>
+                <option value="Slovenia">Slovenia</option>
+                <option value="Solomon Islands">Solomon Islands</option>
+                <option value="Somalia">Somalia</option>
+                <option value="South Africa">South Africa</option>
+                <option value="South Georgia">South Georgia and the South Sandwich Islands</option>
+                <option value="Span">Spain</option>
+                <option value="SriLanka">Sri Lanka</option>
+                <option value="St. Helena">St. Helena</option>
+                <option value="St. Pierre and Miguelon">St. Pierre and Miquelon</option>
+                <option value="Sudan">Sudan</option>
+                <option value="Suriname">Suriname</option>
+                <option value="Svalbard">Svalbard and Jan Mayen Islands</option>
+                <option value="Swaziland">Swaziland</option>
+                <option value="Sweden">Sweden</option>
+                <option value="Switzerland">Switzerland</option>
+                <option value="Syria">Syrian Arab Republic</option>
+                <option value="Taiwan">Taiwan, Province of China</option>
+                <option value="Tajikistan">Tajikistan</option>
+                <option value="Tanzania">Tanzania, United Republic of</option>
+                <option value="Thailand">Thailand</option>
+                <option value="Togo">Togo</option>
+                <option value="Tokelau">Tokelau</option>
+                <option value="Tonga">Tonga</option>
+                <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                <option value="Tunisia">Tunisia</option>
+                <option value="Turkey">Turkey</option>
+                <option value="Turkmenistan">Turkmenistan</option>
+                <option value="Turks and Caicos">Turks and Caicos Islands</option>
+                <option value="Tuvalu">Tuvalu</option>
+                <option value="Uganda">Uganda</option>
+                <option value="Ukraine" selected>Ukraine</option>
+                <option value="United Arab Emirates">United Arab Emirates</option>
+                <option value="United Kingdom">United Kingdom</option>
+                <option value="United States">United States</option>
+                <option value="United States Minor Outlying Islands">United States Minor Outlying Islands</option>
+                <option value="Uruguay">Uruguay</option>
+                <option value="Uzbekistan">Uzbekistan</option>
+                <option value="Vanuatu">Vanuatu</option>
+                <option value="Venezuela">Venezuela</option>
+                <option value="Vietnam">Viet Nam</option>
+                <option value="Virgin Islands (British)">Virgin Islands (British)</option>
+                <option value="Virgin Islands (U.S)">Virgin Islands (U.S.)</option>
+                <option value="Wallis and Futana Islands">Wallis and Futuna Islands</option>
+                <option value="Western Sahara">Western Sahara</option>
+                <option value="Yemen">Yemen</option>
+                <option value="Serbia">Serbia</option>
+                <option value="Zambia">Zambia</option>
+                <option value="Zimbabwe">Zimbabwe</option>
+              </select>
+            </div>
+
+            <div class="input_box" style="margin-bottom: 15px;">
+              <label for="city" style="font-size: 18px">
+                {% if language == 'EN' or language == 'en' %}
+                  City
+                {% else %}
+                  Місто
+                {% endif %}
+                <sup>*</sup></label>
+              <input type="text" name="city" required class="inputs_form__style user__city_field_input validationDefault06"
+                id="city" style="height: 45px; width: 100%;" />
+            </div>
+
+            <div class="input_box" style="margin-bottom: 15px;">
+              <label for="address" style="font-size: 18px">
+                {% if language == 'EN' or language == 'en' %}
+                  Delivery Address
+                {% else %} 
+                  Адреса доставки
+                {% endif %}<sup>*</sup></label>
+              <input type="text" name="address" required
+                class="inputs_form__style user__delivery_field_input validationDefault07" id="address"
+                style="height: 45px; width: 100%;" />
+            </div>
+
+            <div class="input_box" style="margin-bottom: 15px;">
+              <label for="post_office__details" style="font-size: 18px">
+                {% if language == 'EN' or language == 'en' %}
+                  Post Office
+                {% else %} 
+                  Почтове відділення
+                {% endif %}<sup>*</sup></label>
+              <input type="text" name="post_office__details" required
+                class="inputs_form__style user__post_office_field_input validationDefault07" id="post_office__details"
+                style="height: 45px; width: 100%;" />
+            </div>
+
+            <div class="input_box" style="margin-bottom: 15px;">
+              <label for="post_index" style="font-size: 18px">
+                {% if language == 'EN' or language == 'en' %}
+                  Post Index
+                {% else %}
+                  Почтовий індекс
+                {% endif %}
+                  <sup>*</sup></label>
+              <input type="text" name="post_index" required class="inputs_form__style user__post_field_input validationDefault08"
+                id="post_index" style="height: 45px; width: 100%;" />
+            </div>
+
+            <div class="input_box" style="margin-bottom: 15px;">
+              <label for="additional_comment" style="font-size: 18px">
+                {% if language == 'EN' or language == 'en' %}
+                  Additional Comment
+                {% else %} 
+                  Додаткова інформація
+                {% endif %} </label>
+              <input type="text" name="additional_comment" class="inputs_form__style user__addit_field validationDefault09"
+                id="additional_comment" style="height: 45px; width: 100%;" />
+            </div>
+
+            <div class="cart_checkbox__for_documents" style="margin-bottom: 15px ">
+              <input type="checkbox" id="contract_check__checkbox_cart" name="contract_check__checkbox" class="validationDefault09 accept" required/>
+              <label for="contract_check__checkbox_cart" class="contract_check__checkbox">
+                {% if language == 'EN' or language == 'en' %}
+                  I am familiar with the <span><a href="/{{ language }}/exchange" style="color: #0d6efd !important; text-decoration: underline !important;">terms of the exchange and refund</a></span> and <span><a href="/{{ language }}/privacy-policy" style="color: #0d6efd !important; text-decoration: underline !important;">privacy policy</a></span>.
+                {% else %}
+                Я ознайомлений з умовами <span><a href="/{{ language }}/exchange" style="color: #0d6efd !important; text-decoration: underline !important;">обміну та повернення</a></span> й <span><a href="/{{ language }}/privacy-policy" style="color: #0d6efd !important; text-decoration: underline !important;">політика конфіденційності</a></span>.
+                {% endif %}
+              </label>
+            </div>
+
+            <input type="hidden" name="order_title" id="order_title" class="cart_info__hidden" value="" />
+              
+            <input type="hidden" name="hidden_total__uah" id="hidden_total__uah" value="0" />
+
+            <input type="hidden" name="hidden_total__usd" id="hidden_total__usd" value="0" />
+
+            <input type="hidden" name="order_number" id="order_number" class="order_number" value=""  />
+
+
+
+            <div>
+              <button class="cart_submit__button" id="btn_checkout_uah" value="UAH" type="submit" form="modal_cart" >
+                {% if language == 'EN' or language == 'en' %}
+                  Place Order
+                {% else %}
+                 Оформити замовлення
+                {% endif %}
+              </button>
+              <input type="hidden" class="hidden_if_UAH" value="" name="check_currency" id="check_currency"/>         
+            </div>
+            
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script> 
+    let hiddenInputUAH = document.querySelector("#hidden_total__uah"); 
+    let hiddenInputUSD = document.querySelector("#hidden_total__usd"); 
+    let totalUahOnChange = document.querySelector('#cart-total-uah'); 
+    let totalUsdOnChange = document.querySelector('#cart-total-usd'); 
+    let hiddenCartInfo = document.querySelector('.cart_info__hidden'); 
+    let cartCountMainContainer = document.querySelector('.cart_count__main');
+    let cartCountMainContainerPhone = document.querySelector('.cart_count__main2')
+    let cartCountMain = 0;
+    let btnCheckOut = document.querySelectorAll('.cart_submit__button');
+    function checkCart() {
+      if (cartLS.list().length <= 0) {
+        btnCheckOut.forEach(btn => {btn.setAttribute('disabled', true)})
+      } else if ((cartLS.list().length > 0)) {
+        btnCheckOut.forEach(btn => {btn.removeAttribute('disabled')})
+      }
+    }
+    function cartInfo() { 
+      let cartStringInfo = sessionStorage.getItem('__cart') 
+      if (sessionStorage.getItem('__cart') != null) {
+        cartStringInfo = cartStringInfo.replace(/'/g, '"'); 
+        let cartInfo = JSON.parse(cartStringInfo); 
+        let arrayOfCheckoutItems = []; 
+        for (let i = 0; i < cartInfo.length; i++) { 
+          arrayOfCheckoutItems.push(`${cartInfo[i].name} (${cartInfo[i].size}, ${cartInfo[i].quantity})`); 
+        }
+        let res = arrayOfCheckoutItems.toString();
+        hiddenCartInfo.value = res; 
+        hiddenInputUAH.value = parseInt(totalUahOnChange.textContent); 
+        hiddenInputUSD.value = parseInt(totalUsdOnChange.textContent); 
+      }
+    } 
+    function renderCart(items) { 
+      checkCart();
+      const $cart = document.querySelector(".products-column"); 
+      const $totalUah = document.querySelector("#cart-total-uah"); 
+      const $totalUsd = document.querySelector("#cart-total-usd"); 
+      $cart.innerHTML = items.map((item) => ` 
+          <div class="product"> 
+              <div class="product-details"> 
+                  <div class="product-title limit-2-line-text">${item.name}</div> 
+                  <p class="product-description" style="color: #4D4D4D">Size: ${item.size}</p> 
+              </div> 
+              <div class="product-price">${item.price}<span>₴</span> / ${item.priceTwo}<span>$</span></div> 
+              <div class="product-quantity d-flex justify-content-end align-items-center"> 
+                  <button type="button" class="" onClick="cartLS.quantity(${item.id},-1)" style="background: #fff; border: none"> <img src="../../static/images/minus.png" style="max-width: 15px" /> </button> 
+                  ${item.quantity} 
+                  <button type="button" class="" onClick="cartLS.quantity(${item.id},1)" style="background: #fff; border: none"> <img src="../../static/images/plus.png" style="max-width: 15px" /> </button> 
+              </div> 
+              <div class="product-removal"> 
+                  <button class="remove-product d-flex justify-content-center align-items-center" style="padding: 4px 1.5rem !important" onClick="cartLS.remove(${item.id})"> 
+                      <img src="../../static/images/cross.png" style="max-width: 20px;"> 
+                  </button> 
+              </div> 
+              <div class="product-line-price"><span class="product-line-price-UAH">${parseInt(item.price) * parseInt(item.quantity)}</span><span>₴</span> / ${parseInt(item.priceTwo) * parseInt(item.quantity)}<span>$</span></div> 
+          </div> 
+          `).join("") 
+      $totalUah.innerHTML = cartLS.total(countUahTotal) 
+      function countUahTotal(sum, product) { 
+        sum += product.price * product.quantity; 
+        return sum; 
+      } 
+      $totalUsd.innerHTML = cartLS.total(countUsdTotal) 
+      function countUsdTotal(sum, product) { 
+        sum += product.priceTwo * product.quantity; 
+        return sum; 
+      } 
+      let tmpSum = 0;
+      if (cartLS.list().length > 0) {
+        for (let el of cartLS.list()) {
+          tmpSum += el.quantity
+          cartCountMain = tmpSum;
+          cartCountMainContainer.textContent = cartCountMain;
+          cartCountMainContainerPhone.textContent = cartCountMain;
+        }
+      } else {
+        cartCountMainContainer.textContent = 0;
+        cartCountMainContainerPhone.textContent = 0;
+      }
+      cartInfo(); 
+    } 
+    renderCart(cartLS.list()); 
+    cartLS.onChange(renderCart); 
+  </script>
+
+  <a class="scroll-top-arrow" href="javascript:void(0);" onclick="scrollToTop()"><i style="color: #000" class="fa-solid fa-arrow-up"></i></a>
+  <button class="change_lang_button" value="{{ language }}"><p class="d-flex align-items-center justify-content-center langtitle_par" style="margin-bottom: 0 !important">{{ language }}</p></button>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+  <script src="../static/js/code.js"></script>
+</body>
+</html>

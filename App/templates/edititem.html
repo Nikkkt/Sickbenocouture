@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- FavIcon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../../../static/favicons/site.webmanifest">
+    <link rel="mask-icon" href="../../../static/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Style css -->
+    <link rel="stylesheet" href="../../../static/css/style.css">
+    <link rel="stylesheet" href="../../../static/css/admin.css">
+
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 -->
+    <script src="https://kit.fontawesome.com/6a2bd9707a.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+    <!-- Title -->
+    <title>Sickbenocouture</title>
+</head>
+<body>
+    <!-- Header Start -->
+<header class="nav_bar__container">
+    <nav class="container">
+        <div class="row align-items-center d-md-flex d-none">
+            <div class="col-12 offset-">
+                <ul class="d-flex justify-content-evenly align-items-center" style="margin-bottom: 0 !important">
+                    <li class="nav_item" style="font-size: 24px; color: #fff"><a href="/z8d6Ta3H49iJb3S9AR6XtTpb" id="home_nav__button">Add Item</a></li>
+                    <li class="nav_item" style="font-size: 24px; color: #fff"><a href="/z8d6Ta3H49iJb3S9AR6XtTpb/statistics">Statistics</a></li>
+                    <li class="nav_item" style="font-size: 24px; color: #fff"><a href="/z8d6Ta3H49iJb3S9AR6XtTpb/edit">Edit</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row align-items-center justify-content-end d-flex d-md-none">
+            <input type="checkbox" id="menuToggler" class="input-toggler" value="1" autofocus="true"/>
+            <label for="menuToggler" id="menuTogglerLabel" class="menu-toggler" role="button" aria-pressed="false" aria-expanded="false" aria-label="Navigation button">
+                <span class="menu-toggler__line"></span>
+                <span class="menu-toggler__line"></span>
+                <span class="menu-toggler__line"></span>
+            </label>
+            <nav id="sidebar" class="sidebar d-flex flex-column align-items-center" role="navigation" aria-labelledby="menuTogglerLabel" aria-hidden="true">
+                <div class="logo_container">
+                    <img src="../../../static/images/mandems_logo_white.png" alt="Mandems Global White" class="logo_white" />
+                </div>
+                <ul id="menubar" class="menu d-flex flex-column align-items-center" role="menubar" aria-orientation="vertical">
+                    <li class="nav_item" style="font-size: 24px; color: #fff"><a href="/z8d6Ta3H49iJb3S9AR6XtTpb" id="home_nav__button">Add Item</a></li>
+                    <li class="nav_item" style="font-size: 24px; color: #fff"><a href="/z8d6Ta3H49iJb3S9AR6XtTpb/statistics">Statistics</a></li>
+                    <li class="nav_item" style="font-size: 24px; color: #fff"><a href="/z8d6Ta3H49iJb3S9AR6XtTpb/edit">Edit</a></li>
+                </ul>
+            </nav>
+            
+        </div>
+    </nav>
+</header>
+<!-- Header End -->
+
+
+<!-- Main Part Start -->
+<main>
+    <section class="add_new__item_box">
+        <h1 style="text-align: center; margin-bottom: 30px;">Edit {{ item.name }}</h1>
+        <div class="container">
+            <form id="" method="POST" enctype="multipart/form-data">
+                <div class="row" style="flex-wrap: wrap">
+                    <div class="col-12 col-lg-4">
+                        <div class="input_box">
+                            <label for="name" style="font-size: 22px">Name</label>
+                            <input type="text" name="name" required class="inputs_form__style validationDefault01 name" value="{{ item.name }}" id="name" style="height: 45px;"/>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-2">
+                        <div class="input_box">
+                            <label for="price_UAH" style="font-size: 22px">Price UAH</label>
+                            <input type="number" name="price_UAH" required class="inputs_form__style validationDefault02" value="{{ item.price_UAH }}" id="price_UAH" style="height: 45px;"/>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-2">
+                        <div class="input_box">
+                            <label for="price_USD" style="font-size: 22px">Price USD</label>
+                            <input type="number" name="price_USD" required class="inputs_form__style validationDefault03" value="{{ item.price_USD }}" id="price_USD" style="height: 45px;"/>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4">
+                        <div class="input_box">
+                            <fieldset style="display: flex; flex-wrap: wrap; justify-content: space-evenly">
+                                <legend style="margin-bottom: 0; color: #aaa; font-family: 'Crimson Text', serif;">Sizes</legend>
+                                <div style="display: flex; justify-content: space-evenly; align-items: center; flex-direction: column">
+                                    <div style="display: flex;">
+                                        <input type="hidden" value="{{ item.size_S }}" name="size_S" id="size_S" class="hidden_size_S size_input__hidden"/>
+                                        <input type="checkbox" name="S" class="inputs_form__style size_input_S size_checkboxes" style="height: 40px; margin-right: 10px"/>
+                                        <label for="S" style="font-size: 22px">S</label>
+                                    </div>
+                                </div>
+                                <div style="display: flex; justify-content: space-evenly; align-items: center; flex-direction: column">
+                                    <div style="display: flex;">
+                                        <input type="hidden" value="{{ item.size_M }}" name="size_M" id="size_M" class="hidden_size_M size_input__hidden"/>
+                                        <input type="checkbox" name="M" class="inputs_form__style size_input_M size_checkboxes" style="height: 40px; margin-right: 10px"/>
+                                        <label for="M" style="font-size: 22px">M</label>
+                                    </div>
+                                </div>
+                                <div style="display: flex; justify-content: space-evenly; align-items: center; flex-direction: column">
+                                    <div style="display: flex;">
+                                        <input type="hidden" value="{{ item.size_L }}" name="size_L" id="size_L" class="hidden_size_L size_input__hidden"/>
+                                        <input type="checkbox" name="L" class="inputs_form__style size_input_L size_checkboxes" style="height: 40px; margin-right: 10px"/>
+                                        <label for="L" style="font-size: 22px">L</label>
+                                    </div>
+                                </div>
+                                <div style="display: flex; justify-content: space-evenly; align-items: center; flex-direction: column">
+                                    <div style="display: flex;">
+                                        <input type="hidden" value="{{ item.size_XL }}" name="size_XL" id="size_XL" class="hidden_size_XL size_input__hidden"/>
+                                        <input type="checkbox" name="XL" class="inputs_form__style size_input_XL size_checkboxes" style="height: 40px; margin-right: 10px"/>
+                                        <label for="XL" style="font-size: 22px">XL</label>
+                                    </div>
+                                </div>
+                                <div style="display: flex; justify-content: space-evenly; align-items: center; flex-direction: column">
+                                    <div style="display: flex;">
+                                        <input type="hidden" value="{{ item.size_XXL }}" name="size_XXL" id="size_XXL" class="hidden_size_XXL size_input__hidden"/>
+                                        <input type="checkbox" name="XXL" class="inputs_form__style size_input_XXL size_checkboxes" style="height: 40px; margin-right: 10px"/>
+                                        <label for="XXL" style="font-size: 22px">XXL</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 col-lg-4">
+                    <div class="input_box">
+                        <label for="description" style="font-size: 22px">Description UA</label>
+                        <textarea name="description" value="{{ item.description }}" id="description" required class="inputs_form__style validationDefault05" style="height: 90px;">{{ item.description }}</textarea>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div class="input_box">
+                        <label for="description_en" style="font-size: 22px">Description EN</label>
+                        <textarea name="description_en" value="{{ item.description_en }}" id="description_en" required class="inputs_form__style validationDefault05" style="height: 90px;">{{ item.description_en }}</textarea>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div class="input_box">
+                        <label for="amountNumber" style="font-size: 22px">Amount</label>
+                        <input type="number" name="amountNumber" value="{{ item.amountNumber }}" required class="inputs_form__style main_amount validationDefault06" id="amountNumber" style="height: 45px;"/>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div class="input_box">
+                        <label for="additional_info" style="font-size: 22px">Additional Information UA</label>
+                        <textarea name="additional_info" value="{{ item.additional_info }}" id="additional_info" class="inputs_form__style" style="height: 90px;">{{ item.additional_info }}</textarea>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div class="input_box">
+                        <label for="additional_info_en" style="font-size: 22px">Additional Information EN</label>
+                        <textarea name="additional_info_en" value="{{ item.additional_info_en }}" id="additional_info_en" class="inputs_form__style" style="height: 90px;">{{ item.additional_info_en }}</textarea>
+                    </div>
+                </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-12">
+                        <label for="image" style="font-size: 22px">Photo</label>
+                        <input type="file" multiple="true" value="" name="image" id="image" class="inputs_form__style" style="height: 45px;"/>
+                        <button id="btn_check_images" class="form_submit__button">Clear Images</button>
+                        <input type="hidden" class="hidden_if_delete_all_images" value="" name="check_delete_all_images" id="delete_all_images"/>
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <label for="slug" style="font-size: 22px">Slug</label>
+                        <input type="text" name="slug" value="{{ item.slug }}"  required class="inputs_form__style slug" id="slug" style="height: 45px;"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-between">
+                        <button id="btn_check_update" class="form_submit__button_changes edit_button__update" type="submit" method="POST">Update</button>
+                            <input type="hidden" class="hidden_if_update" value="" name="check_action" id="check_action"/>
+                        <button id="btn_check_delete" class="form_submit__button_changes edit_button__delete" type="submit" method="POST">Delete</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+    <script src="../../../static/js/admin.js"></script>
+    <script src="../../../static/js/edititem.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js" integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
+    
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>

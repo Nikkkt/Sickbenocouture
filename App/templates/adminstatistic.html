@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- FavIcon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png">
+  <link rel="manifest" href="../static/favicons/site.webmanifest">
+  <link rel="mask-icon" href="../static/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#000000">
+
+  <!-- Style css -->
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="stylesheet" href="../static/css/admin.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Crimson+Text:wght@400;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap 5 -->
+  <script src="https://kit.fontawesome.com/6a2bd9707a.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  <!-- Title -->
+  <title>Sickbenocouture</title>
+
+<style>
+  .statistics_id__row {display: block}
+  @media (min-width: 1200px) and (max-width: 1456px) {
+    .statistics_id__row {display: flex; text-align: center;}
+  }
+
+  :root {
+      --bg-table-stripe: #f6f6f5;
+      --b-table: #e3e3e2;
+      --caption: #242423;
+  }
+  
+  table {
+      background-color: transparent;
+      border-collapse:collapse;
+      font-family: Arial, Helvetica, sans-serif
+  }
+  
+  th {
+      text-align:left;
+      background-color: var(--b-table);
+      padding: 10px
+  }
+  
+  .dcf-txt-center {
+        text-align: center!important
+      }
+  
+      .dcf-txt-left {
+        text-align: left!important
+      }
+  
+      .dcf-txt-right {
+        text-align: right!important
+      }
+      
+  .dcf-table caption {
+        color: var(--caption);
+        font-size: 1.13em;
+        font-weight: 700;
+        padding-bottom: .56rem
+      }
+  
+      .dcf-table thead {
+        font-size: .84em
+      }
+  
+      .dcf-table tbody {
+        border-bottom: 1px solid var(--b-table);
+        border-top: 1px solid var(--b-table);
+        font-size: .84em
+      }
+  
+      .dcf-table tfoot {
+        font-size: .84em
+      }
+  
+      .dcf-table td, .dcf-table th {
+        padding-right: 1.78em
+      }
+  
+      .dcf-table-bordered, .dcf-table-bordered td, .dcf-table-bordered th {
+        border: 1px solid var(--b-table)
+      }
+  
+      .dcf-table-bordered td, .dcf-table-bordered th, .dcf-table-striped td, .dcf-table-striped th {
+        padding-left: 1em;
+        padding-right: 1em
+      }
+  
+      .dcf-table-bordered tr:not(:last-child), .dcf-table-striped tr:not(:last-child) {
+        border-bottom: 1px solid var(--b-table)
+      }
+  
+      .dcf-table-striped tbody tr:nth-of-type(2n) {
+        background-color: var(--bg-table-stripe)
+      }
+  
+      .dcf-table thead td, .dcf-table thead th {
+        padding-bottom: .75em;
+        vertical-align: bottom
+      }
+  
+      .dcf-table tbody td, .dcf-table tbody th, .dcf-table tfoot td, .dcf-table tfoot th {
+        padding-top: .75em;
+        vertical-align: top
+      }
+  
+      .dcf-table tbody td, .dcf-table tbody th {
+        padding-bottom: .75em
+      }
+  
+      .dcf-table-bordered thead th {
+        padding-top: 1.33em
+      }
+  
+      .dcf-wrapper-table-scroll {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        left: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        padding-bottom: 1em;
+        position: relative;
+        right: 50%;
+        width: 100vw
+      }
+  
+      @media only screen and (max-width: 1199.98px) {
+        .dcf-table-responsive thead {
+          clip: rect(0 0 0 0);
+          -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+          height: 1px;
+          overflow: hidden;
+          position: absolute;
+          width: 1px;
+          white-space: nowrap
+        }
+        .dcf-table-responsive tr {
+          display: block
+        }
+        .dcf-table-responsive td {
+          -webkit-column-gap: 3.16vw;
+          -moz-column-gap: 3.16vw;
+          column-gap: 3.16vw;
+          display: grid;
+          grid-template-columns: 1fr 2fr;
+          text-align: left!important
+        }
+        .dcf-table-responsive.dcf-table-bordered, .dcf-table-responsive.dcf-table-bordered thead th {
+          border-width: 0
+        }
+        .dcf-table-responsive.dcf-table-bordered tbody td {
+          border-top-width: 0
+        }
+        .dcf-table-responsive:not(.dcf-table-bordered) tbody tr {
+          padding-bottom: .75em
+        }
+        .dcf-table-responsive:not(.dcf-table-bordered) tbody td {
+          padding-bottom: 0
+        }
+        .dcf-table-responsive:not(.dcf-table-bordered):not(.dcf-table-striped) tbody td {
+          padding-right: 0
+        }
+        .dcf-table-responsive.dcf-table-bordered tbody tr:last-child td:last-child {
+          border-bottom-width: 0
+        }
+        .dcf-table-responsive tbody td:before {
+          content: attr(data-label);
+          float: left;
+          font-weight: 700;
+          padding-right: 1.78em
+        }
+      }
+  
+  .dcf-overflow-x-auto {
+        overflow-x: auto!important;
+        -webkit-overflow-scrolling: touch
+      }
+      
+  .dcf-w-100\% {
+    width: 100%!important;
+      }
+      
+  </style>
+</head>
+
+<body>
+  <!-- Header Start -->
+  <header class="nav_bar__container">
+    <nav class="container">
+      <div class="row align-items-center d-md-flex d-none">
+        <div class="col-12 offset-">
+          <ul class="d-flex justify-content-evenly align-items-center" style="margin-bottom: 0 !important">
+            <li class="nav_item" style="font-size: 24px; color: #fff"><a href="/z8d6Ta3H49iJb3S9AR6XtTpb"
+                id="home_nav__button">Add Item</a></li>
+            <li class="nav_item" style="font-size: 24px; color: #fff"><a
+                href="/z8d6Ta3H49iJb3S9AR6XtTpb/statistics">Statistics</a></li>
+            <li class="nav_item" style="font-size: 24px; color: #fff"><a href="/z8d6Ta3H49iJb3S9AR6XtTpb/edit">Edit</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row align-items-center justify-content-end d-flex d-md-none">
+        <input type="checkbox" id="menuToggler" class="input-toggler" value="1" autofocus="true" />
+        <label for="menuToggler" id="menuTogglerLabel" class="menu-toggler" role="button" aria-pressed="false"
+          aria-expanded="false" aria-label="Navigation button">
+          <span class="menu-toggler__line"></span>
+          <span class="menu-toggler__line"></span>
+          <span class="menu-toggler__line"></span>
+        </label>
+        <nav id="sidebar" class="sidebar d-flex flex-column align-items-center" role="navigation"
+          aria-labelledby="menuTogglerLabel" aria-hidden="true">
+          <div class="logo_container">
+            <img src="../static/images/mandems_logo_white.png" alt="Mandems Global White" class="logo_white" />
+          </div>
+          <ul id="menubar" class="menu d-flex flex-column align-items-center" role="menubar"
+            aria-orientation="vertical">
+            <li class="nav_item" style="font-size: 24px; color: #fff"><a href="/z8d6Ta3H49iJb3S9AR6XtTpb"
+                id="home_nav__button">Add Item</a></li>
+            <li class="nav_item" style="font-size: 24px; color: #fff"><a
+                href="/z8d6Ta3H49iJb3S9AR6XtTpb/statistics">Statistics</a></li>
+            <li class="nav_item" style="font-size: 24px; color: #fff"><a href="/z8d6Ta3H49iJb3S9AR6XtTpb/edit">Edit</a>
+            </li>
+          </ul>
+        </nav>
+
+      </div>
+    </nav>
+  </header>
+  <!-- Header End -->
+
+
+  <!-- Main Part Start -->
+  <main>
+    <section class="statistics_section">
+      <h1 class="text-center" style="margin-bottom:30px">Statistics</h1>
+
+      <div class="accordion" id="accordionPanelsStayOpenExample">
+        {% for orderEl in order %}
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-heading{{ orderEl.id }}">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse{{ orderEl.id }}" aria-expanded="false" aria-controls="panelsStayOpen-collapse{{ orderEl.id }}">
+                <a href="/z8d6Ta3H49iJb3S9AR6XtTpb/statistics/delete/{{ orderEl.id }}" style="margin-right: 10px; color: #000 !important"><img src="../static/images/minus.png" style="max-width: 15px" /><span style="margin-left: 5px">{{ orderEl.id }}</span></a>
+                <span style="font-size: 18px">{{ orderEl.order_id }}</span>
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapse{{ orderEl.id }}" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-heading{{ orderEl.id }}">
+              <div class="accordion-body">
+                <div class="row" style="margin-bottom: 10px">
+                    <div class="col-12 col-md-6 list_border">
+                      <div>
+                        <h5>
+                          User Information:
+                        </h5>
+                        <ul>
+                          <li>Name: {{ orderEl.user_name }}</li>
+                          <li>Last Name: {{ orderEl.lastname }}</li>
+                          <li>Email: {{ orderEl.email }}</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6" style="border-bottom: 1px solid #000; margin-top: 10px">
+                      <div>
+                        <h5>
+                          Delivery Information:
+                        </h5>
+                        <ul>
+                          <li>Country: {{ orderEl.country }}</li>
+                          <li>City: {{ orderEl.city }} </li>
+                          <li>Delivery Address: {{ orderEl.address }}</li>
+                          <li>Post office: {{ orderEl.post_office_details }}</li>
+                          <li>Post index: {{ orderEl.post_index }}</li>
+                          <li>Additional comment: {{ orderEl.additional_comment }}</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12" style="margin-bottom: 10px; border-bottom: 1px solid #000">
+                      <h5>
+                        Order Information: 
+                      </h5>
+                      <ul>
+                        <li>Order ID: {{ orderEl.order_id }}</li>
+                        <li>General Order Info:
+                            <div style="display: flex; flex-direction: column;">
+                              {{ orderEl.order_title }}
+                            </div>
+                        </li>
+                        <li>Total price: {{ orderEl.hidden_total__uah }}₴ / {{ orderEl.hidden_total__usd }}$ </li>
+                      </ul>
+                    </div>
+                    <div class="col-12" style="border-bottom: 1px solid #000">
+                      <h5>
+                        Communication Type: 
+                      </h5>
+                      <ul>
+                        <li>Messenger: {{ orderEl.messenger }}</li>
+                        <li>User Name / Phone Number: {{ orderEl.phone_or_nickname }}</li>
+                      </ul>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <a href="/z8d6Ta3H49iJb3S9AR6XtTpb/statistics/reset"><button class="statistics_reset__button">Reset</button></a>
+    </section>
+  </main>
+
+  <script src="../static/js/statistics.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js" integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
+    
+</body>
+
+</html>
